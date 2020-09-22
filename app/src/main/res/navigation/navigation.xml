@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.davion.github.customview.screen.main.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_progressFragment"
+            app:destination="@id/progressFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/progressFragment"
+        android:name="com.davion.github.customview.screen.progress.ProgressFragment"
+        android:label="ProgressFragment"
+        tools:layout="@layout/fragment_progress" />
+</navigation>
