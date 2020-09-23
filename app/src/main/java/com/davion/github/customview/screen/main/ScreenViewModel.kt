@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class MainViewModel : ViewModel() {
+class ScreenViewModel : ViewModel() {
 
     private val _navigateProgress: MutableLiveData<Boolean> = MutableLiveData()
     val navigateProgress: LiveData<Boolean>

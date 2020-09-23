@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/screenFragment">
 
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.davion.github.customview.screen.main.MainFragment"
+        android:id="@+id/screenFragment"
+        android:name="com.davion.github.customview.screen.main.ScreenFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_progressFragment"
+            android:id="@+id/action_screenFragment_to_progressFragment"
             app:destination="@id/progressFragment" />
     </fragment>
     <fragment

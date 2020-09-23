@@ -14,28 +14,36 @@ import com.davion.github.customview.R
 import com.davion.github.customview.core.viewBinding
 import com.davion.github.customview.databinding.FragmentMainBinding
 
-val TAG: String = MainFragment::class.java.simpleName
+val TAG: String = ScreenFragment::class.java.simpleName
 
-class MainFragment : Fragment(R.layout.fragment_main) {
+class ScreenFragment : Fragment(R.layout.fragment_main) {
     private val binding by viewBinding(FragmentMainBinding::bind)
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: ScreenViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d(TAG, "Davion onViewCreated")
 
-        binding.btNavigate.setOnClickListener {
-            viewModel.navigateToProgress()
-        }
+        onClickButton()
 
-        viewModel.navigateProgress.observe(viewLifecycleOwner,  {
+        observerNavigation()
+    }
+
+    private fun observerNavigation() {
+        viewModel.navigateProgress.observe(viewLifecycleOwner, {
             it?.let {
                 Log.d(TAG, "Davion observer navigate to the progress screen")
-                this.findNavController().navigate(R.id.action_mainFragment_to_progressFragment)
+                this.findNavController().navigate(R.id.action_screenFragment_to_progressFragment)
                 viewModel.navigateToProgressCompleted()
             }
         })
+    }
+
+    private fun onClickButton() {
+        binding.btNavigate.setOnClickListener {
+            viewModel.navigateToProgress()
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
