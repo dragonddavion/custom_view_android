@@ -9,7 +9,7 @@
         android:id="@+id/screenFragment"
         android:name="com.davion.github.customview.screen.main.ScreenFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_screen" >
         <action
             android:id="@+id/action_screenFragment_to_progressFragment"
             app:destination="@id/progressFragment" />

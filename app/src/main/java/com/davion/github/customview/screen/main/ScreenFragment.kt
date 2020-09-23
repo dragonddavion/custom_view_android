@@ -12,12 +12,12 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.davion.github.customview.R
 import com.davion.github.customview.core.viewBinding
-import com.davion.github.customview.databinding.FragmentMainBinding
+import com.davion.github.customview.databinding.FragmentScreenBinding
 
 val TAG: String = ScreenFragment::class.java.simpleName
 
-class ScreenFragment : Fragment(R.layout.fragment_main) {
-    private val binding by viewBinding(FragmentMainBinding::bind)
+class ScreenFragment : Fragment(R.layout.fragment_screen) {
+    private val binding: FragmentScreenBinding by viewBinding(FragmentScreenBinding::bind)
 
     private val viewModel: ScreenViewModel by viewModels()
 
@@ -25,9 +25,30 @@ class ScreenFragment : Fragment(R.layout.fragment_main) {
         super.onViewCreated(view, savedInstanceState)
         Log.d(TAG, "Davion onViewCreated")
 
+        initRecyclerView()
+
+        initScreenData()
+
         onClickButton()
 
         observerNavigation()
+    }
+
+    private fun initScreenData() {
+        viewModel.initScreenData()
+    }
+
+    private fun initRecyclerView() {
+        val adapter = ScreenAdapter()
+        binding.screens.adapter = adapter
+
+        viewModel.screens.observe(viewLifecycleOwner, {
+            Log.d("Davion", "observer Data: $it")
+            it?.let {
+                adapter.submitList(it)
+            }
+        })
+
     }
 
     private fun observerNavigation() {

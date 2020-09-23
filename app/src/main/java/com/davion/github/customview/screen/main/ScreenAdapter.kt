@@ -1,9 +1,11 @@
 package com.davion.github.customview.screen.main
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.davion.github.customview.R
 import com.davion.github.customview.databinding.ItemScreenBinding
 import com.davion.github.customview.util.diffutil.ScreenDiffUtil
 
@@ -17,12 +19,20 @@ class ScreenAdapter : ListAdapter<Screen, ScreenViewHolder>(ScreenDiffUtil()) {
         val screen = getItem(position)
         holder.bind(screen)
     }
+
+    override fun submitList(list: List<Screen>?) {
+        Log.d("Davion", "submit list $list")
+        super.submitList(list?.let {
+            ArrayList(it)
+        })
+    }
 }
 
 class ScreenViewHolder(private val binding: ItemScreenBinding): RecyclerView.ViewHolder(binding.root) {
     fun bind(screen: Screen) {
-        binding.tvTitle
-
+        binding.tvTitle.text = screen.name
+        binding.icScreen.setImageResource(R.drawable.im_progress)
+        binding.tvDescription.text = screen.description
     }
 
     companion object {

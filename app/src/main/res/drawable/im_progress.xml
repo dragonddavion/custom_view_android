@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rotate xmlns:android="http://schemas.android.com/apk/res/android"
-    android:fromDegrees="-90"
-    android:pivotX="50%"
-    android:pivotY="50%"
-    android:toDegrees="270">
+    android:fromDegrees="270">
     <shape
-        android:innerRadiusRatio="2.6"
+        android:innerRadiusRatio="3.4"
         android:shape="ring"
         android:useLevel="false">
+        <size
+            android:width="100dp"
+            android:height="100dp" />
         <gradient
             android:centerY="0.5"
             android:endColor="@color/colorPrimaryDark"
@@ -16,3 +16,6 @@
             android:useLevel="false" />
     </shape>
 </rotate>
+
+
+
