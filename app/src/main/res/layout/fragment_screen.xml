@@ -18,7 +18,7 @@
         android:layout_width="329dp"
         android:layout_height="662dp"
         android:layout_margin="8dp"
-        android:background="#CC9595"
+        android:background="@color/colorBackgroundScreenRecyclerView"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
