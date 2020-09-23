@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.davion.github.customview.R
 import com.davion.github.customview.core.viewBinding
 import com.davion.github.customview.databinding.FragmentScreenBinding
+import com.davion.github.customview.util.getActionNavigationFromType
 
 val TAG: String = ScreenFragment::class.java.simpleName
 
@@ -27,19 +28,14 @@ class ScreenFragment : Fragment(R.layout.fragment_screen) {
 
         initRecyclerView()
 
-        initScreenData()
-
-        onClickButton()
-
         observerNavigation()
     }
 
-    private fun initScreenData() {
-        viewModel.initScreenData()
-    }
-
     private fun initRecyclerView() {
-        val adapter = ScreenAdapter()
+        val adapter = ScreenAdapter {
+            viewModel.navigateToScreen(it.id)
+        }
+
         binding.screens.adapter = adapter
 
         viewModel.screens.observe(viewLifecycleOwner, {
@@ -48,23 +44,16 @@ class ScreenFragment : Fragment(R.layout.fragment_screen) {
                 adapter.submitList(it)
             }
         })
-
     }
 
     private fun observerNavigation() {
-        viewModel.navigateProgress.observe(viewLifecycleOwner, {
+        viewModel.screenNavigation.observe(viewLifecycleOwner, {
             it?.let {
                 Log.d(TAG, "Davion observer navigate to the progress screen")
-                this.findNavController().navigate(R.id.action_screenFragment_to_progressFragment)
-                viewModel.navigateToProgressCompleted()
+                this.findNavController().navigate(getActionNavigationFromType(it))
+                viewModel.navigateToScreenCompleted()
             }
         })
-    }
-
-    private fun onClickButton() {
-        binding.btNavigate.setOnClickListener {
-            viewModel.navigateToProgress()
-        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

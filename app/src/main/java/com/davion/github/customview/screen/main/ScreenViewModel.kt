@@ -11,22 +11,24 @@ class ScreenViewModel : ViewModel() {
     val screens: LiveData<List<Screen>>
         get() = _screens
 
-    private val _navigateProgress: MutableLiveData<Boolean> = MutableLiveData()
-    val navigateProgress: LiveData<Boolean>
-        get() = _navigateProgress
+    private val _screenNavigation: MutableLiveData<Int> = MutableLiveData()
+    val screenNavigation: LiveData<Int>
+        get() = _screenNavigation
 
-
-
-
-    fun navigateToProgress() {
-        _navigateProgress.value = true
+    init {
+        initScreenData()
     }
 
-    fun navigateToProgressCompleted() {
-        _navigateProgress.value = null
+
+    fun navigateToScreen(screenType: Int) {
+        _screenNavigation.value = screenType
     }
 
-    fun initScreenData() {
+    fun navigateToScreenCompleted() {
+        _screenNavigation.value = null
+    }
+
+    private fun initScreenData() {
         val progressScreen = Screen(0, "Progress", "The view is progress")
         screenList.add(progressScreen)
         _screens.value = screenList
