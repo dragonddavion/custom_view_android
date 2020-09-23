@@ -6,4 +6,5 @@
 
 
     <color name="colorBackgroundScreenRecyclerView">#E6E6E6</color>
+    <color name="colorTextWhite">#FFFFFF</color>
 </resources>

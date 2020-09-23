@@ -10,6 +10,10 @@
         android:id="@+id/tv_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorTextWhite"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/ic_screen"
         app:layout_constraintStart_toStartOf="@+id/ic_screen"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/description"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/im_progress"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
@@ -28,6 +32,8 @@
         android:id="@+id/tv_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="#FFFFF4"
         app:layout_constraintEnd_toEndOf="@+id/ic_screen"
         app:layout_constraintStart_toStartOf="@+id/ic_screen"
         app:layout_constraintTop_toBottomOf="@+id/ic_screen"

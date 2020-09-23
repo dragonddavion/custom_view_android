@@ -19,34 +19,7 @@ class ProgressFragment : Fragment(R.layout.fragment_progress) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.gridLayout.columnCount = 8
-        binding.gridLayout.rowCount = 3
-
-        val layoutInflater = layoutInflater
-
-        for (i in 0..15) {
-            val childView = layoutInflater.inflate(R.layout.item_grid_layout, binding.gridLayout, false)
-            binding.gridLayout.addView(childView)
-        }
-
-        for (i in 0..25) {
-            val childView = layoutInflater.inflate(R.layout.item_grid_layout, binding.gridLayout, false)
-            binding.gridLayout.addView(childView)
-        }
-
-        timer = object : CountDownTimer(20000, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                binding.progressBar.progress += 5
-                binding.seekBar.progress += 5
-                binding.progressCircle.progress += 5
-                val progressText = binding.progressCircle.progress.toString() + "%"
-                binding.textView2.text = progressText
-            }
-
-            override fun onFinish() {
-                Log.d("Davion", "onFinish")
-            }
-        }
+        initTimer()
 
         timer.start()
 
@@ -60,6 +33,22 @@ class ProgressFragment : Fragment(R.layout.fragment_progress) {
             binding.progressCircle.progress = 0
             timer.cancel()
             timer.start()
+        }
+    }
+
+    private fun initTimer() {
+        timer = object : CountDownTimer(20000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                binding.progressBar.progress += 5
+                binding.seekBar.progress += 5
+                binding.progressCircle.progress += 5
+                val progressText = binding.progressCircle.progress.toString() + "%"
+                binding.textView2.text = progressText
+            }
+
+            override fun onFinish() {
+                Log.d("Davion", "onFinish")
+            }
         }
     }
 
