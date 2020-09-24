@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_screenFragment_to_progressFragment"
             app:destination="@id/progressFragment" />
+        <action
+            android:id="@+id/action_screenFragment_to_collapsingFragment"
+            app:destination="@id/collapsingFragment" />
     </fragment>
     <fragment
         android:id="@+id/progressFragment"
         android:name="com.davion.github.customview.screen.progress.ProgressFragment"
         android:label="ProgressFragment"
         tools:layout="@layout/fragment_progress" />
+    <fragment
+        android:id="@+id/collapsingFragment"
+        android:name="com.davion.github.customview.screen.collapsing.CollapsingFragment"
+        tools:layout="@layout/fragment_collapsing"
+        android:label="CollapsingFragment" />
 </navigation>

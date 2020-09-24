@@ -3,4 +3,25 @@
     <string name="navigate_to_progress">Progress</string>
     <string name="description">Description</string>
     <string name="description_example">The head of layout that provide more detail</string>
+
+    <string name="title_long_text">These Are The Top 5 Deadliest Poisons on The Planet</string>
+
+    <string name="author_long_text">SIMON COTTON, THE CONVERSATION15 APRIL 2016</string>
+
+    <string name="content_long_text">This article was written by Simon Cotton from the University of Birmingham, and was originally published by The Conversation.
+        When asked to name a poison, people may well think of cyanide, arsenic, or strychnine. But these are not the most toxic substances known.
+        More poisonous than these, but still not near the top of the tree, is tetrodotoxin, the pufferfish toxin that poisons around 50 Japanese people every year.
+        The fish is a delicacy in Japan, but can be lethal if prepared incorrectly. Incidentally, this was the poison favoured by evil assassin Rosa Klebb in James Bond film From Russia With Love. It also crops up in the blue-ringed octopus and was more recently discovered in tiny frogs in Brazil.
+        The LD50 (Lethal Dose, 50 percent) – the amount needed to kill 50 percent of the test population – is how toxicity is most often assessed, and is usually quoted per kilogram of body weight. On this scale, for example, sodium cyanide comes out at around 6 milligrams per kg. The LD50 of tetrodoxotin, by comparison, is around 300 micrograms per kg if orally ingested, and as little as 10 micrograms per kg if injected.
+        Assessing toxicity is not easy. The chemical state of a substance is important, as is how we ingest it. If we swallowed liquid mercury metal (as distinct from inhaling the vapour), it would very likely pass straight through us harmlessly. And yet when in 1996 an American professor got just a drop or two of the compound dimethyl mercury on her rubber gloves, it penetrated the gloves and her skin, sending her into a fatal coma some months later.
+        Nevertheless, here is a representative selection, in ascending order, of five truly deadly poisons, all at least a hundred times more toxic than cyanide, arsenic, or strychnine.
+
+        1. Botulinum toxin
+        Scientists differ about the relative toxicities of substances, but they seem to agree that botulinum toxin, produced by anaerobic bacteria, is the most toxic substance known. Its LD50 is tiny – at most 1 nanogram per kilogram can kill a human. Extrapolating from its effect on mice, an intravenous dose of just 10-7g would be fatal to a 70kg person.
+        It was first identified as a cause of food poisoning due to incorrectly prepared sausage (Latin, botulus) in late-18th century Germany. There are several botulinum toxins, with type A being the most potent. These are polypeptides, consisting of over 1,000 amino acid molecules joined together. They cause muscle paralysis by preventing the release of the signalling molecule (neurotransmitter) acetylcholine.
+        This same paralysing property is fundamental to the clinical use of the botulinum toxin in cosmetic Botox. Targeted injections of tiny amounts of the toxin stop particular muscles from working, relaxing muscles that would otherwise cause wrinkly skin. But it has also been applied to a range of clinical conditions, such as paralysing muscles that, if untreated, would cause crossed eyes (strabismus).
+        There is increasing interest in using the properties of toxic substances medicinally. The venom of the lethal Brazilian pit viper, Bothrops jararaca, for example, contains blood-pressure reducing molecules that have led to pioneering treatments for high blood pressure.
+        As Paracelsus is reported to have said 500 years ago: "All things are poison, and nothing is without poison: the dose alone makes a thing not poison." And he had a point. Ultimately, we are surrounded by potentially dangerous substances – it’s the dose that makes it deadly.
+    </string>
+
 </resources>

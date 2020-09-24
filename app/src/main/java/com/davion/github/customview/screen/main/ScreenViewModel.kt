@@ -31,6 +31,8 @@ class ScreenViewModel : ViewModel() {
     private fun initScreenData() {
         val progressScreen = Screen(0, "Progress", "The view is progress")
         screenList.add(progressScreen)
+        val collapsingScreen = Screen(1, "Collapsing Toolbar", "The screen is collapsing")
+        screenList.add(collapsingScreen)
         _screens.value = screenList
     }
 }
