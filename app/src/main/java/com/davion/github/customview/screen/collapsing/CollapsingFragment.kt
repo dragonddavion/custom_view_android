@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import com.davion.github.customview.R
 import com.davion.github.customview.core.viewBinding
 import com.davion.github.customview.databinding.FragmentCollapsingBinding
@@ -24,11 +27,13 @@ class CollapsingFragment : Fragment(R.layout.fragment_collapsing) {
         super.onViewCreated(view, savedInstanceState)
 
         setupActionBar()
-
     }
 
     private fun setupActionBar() {
         binding.collapsingToolbarLayout.title = "Collapsing Toolbar"
+        val navController = findNavController()
+        val appBarConfiguration = AppBarConfiguration(navController.graph)
 
+        binding.collapsingToolbarLayout.setupWithNavController(binding.toolbar, navController, appBarConfiguration)
     }
 }

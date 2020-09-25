@@ -20,11 +20,10 @@
     <fragment
         android:id="@+id/progressFragment"
         android:name="com.davion.github.customview.screen.progress.ProgressFragment"
-        android:label="ProgressFragment"
         tools:layout="@layout/fragment_progress" />
     <fragment
         android:id="@+id/collapsingFragment"
         android:name="com.davion.github.customview.screen.collapsing.CollapsingFragment"
         tools:layout="@layout/fragment_collapsing"
-        android:label="CollapsingFragment" />
+        android:label="Collapsing ToolBar" />
 </navigation>

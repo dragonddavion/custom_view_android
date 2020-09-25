@@ -5,6 +5,11 @@ import android.os.CountDownTimer
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
+import com.davion.github.customview.MainActivity
 import com.davion.github.customview.R
 import com.davion.github.customview.core.viewBinding
 import com.davion.github.customview.databinding.FragmentProgressBinding
@@ -27,6 +32,10 @@ class ProgressFragment : Fragment(R.layout.fragment_progress) {
 
     private fun setupActionBar() {
         binding.toolbarLayout.topAppBar.title = "Progress"
+
+        val navController = this.findNavController()
+        val appBarConfiguration = AppBarConfiguration(navController.graph)
+        binding.toolbarLayout.topAppBar.setupWithNavController(navController, appBarConfiguration)
     }
 
     private fun initTimer() {

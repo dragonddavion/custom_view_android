@@ -8,6 +8,8 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import com.davion.github.customview.R
 import com.davion.github.customview.core.viewBinding
 import com.davion.github.customview.databinding.FragmentScreenBinding
@@ -32,9 +34,11 @@ class ScreenFragment : Fragment(R.layout.fragment_screen) {
     }
 
     private fun initToolbar(toolbar: MaterialToolbar) {
-        toolbar.title = "Screens"
         toolbar.inflateMenu(R.menu.top_app_bar)
-        toolbar.setNavigationIcon(R.drawable.ic_menu)
+
+        val navController = this.findNavController()
+        val appBarConfiguration = AppBarConfiguration(navController.graph)
+        binding.toolbarLayout.topAppBar.setupWithNavController(navController, appBarConfiguration)
     }
 
     private fun initRecyclerView() {
