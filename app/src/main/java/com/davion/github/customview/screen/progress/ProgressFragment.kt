@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import com.davion.github.customview.R
 import com.davion.github.customview.core.viewBinding
 import com.davion.github.customview.databinding.FragmentProgressBinding
-import kotlinx.android.synthetic.main.fragment_progress.*
 
 class ProgressFragment : Fragment(R.layout.fragment_progress) {
 
@@ -19,36 +18,46 @@ class ProgressFragment : Fragment(R.layout.fragment_progress) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupActionBar()
+
         initTimer()
 
-        timer.start()
+        initButton()
+    }
 
-        binding.button.setOnClickListener {
-            binding.progressBar.progress += 10
-        }
-
-        button_reset.setOnClickListener {
-            binding.progressBar.progress = 0
-            binding.seekBar.progress = 0
-            binding.progressCircle.progress = 0
-            timer.cancel()
-            timer.start()
-        }
+    private fun setupActionBar() {
+        binding.toolbarLayout.topAppBar.title = "Progress"
     }
 
     private fun initTimer() {
         timer = object : CountDownTimer(20000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-                binding.progressBar.progress += 5
-                binding.seekBar.progress += 5
-                binding.progressCircle.progress += 5
-                val progressText = binding.progressCircle.progress.toString() + "%"
-                binding.textView2.text = progressText
+                binding.progressLayout.progressBar.progress += 5
+                binding.progressLayout.seekBar.progress += 5
+                binding.progressLayout.progressCircle.progress += 5
+                val progressText = binding.progressLayout.progressCircle.progress.toString() + "%"
+                binding.progressLayout.textView2.text = progressText
             }
 
             override fun onFinish() {
                 Log.d("Davion", "onFinish")
             }
+        }
+
+        timer.start()
+    }
+
+    private fun initButton() {
+        binding.progressLayout.button.setOnClickListener {
+            binding.progressLayout.progressBar.progress += 10
+        }
+
+        binding.progressLayout.buttonReset.setOnClickListener {
+            binding.progressLayout.progressBar.progress = 0
+            binding.progressLayout.seekBar.progress = 0
+            binding.progressLayout.progressCircle.progress = 0
+            timer.cancel()
+            timer.start()
         }
     }
 

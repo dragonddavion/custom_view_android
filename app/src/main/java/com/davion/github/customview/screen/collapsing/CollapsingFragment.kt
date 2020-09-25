@@ -22,6 +22,13 @@ class CollapsingFragment : Fragment(R.layout.fragment_collapsing) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        setupActionBar()
+
+    }
+
+    private fun setupActionBar() {
         binding.collapsingToolbarLayout.title = "Collapsing Toolbar"
+
     }
 }

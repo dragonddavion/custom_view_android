@@ -23,5 +23,8 @@
         There is increasing interest in using the properties of toxic substances medicinally. The venom of the lethal Brazilian pit viper, Bothrops jararaca, for example, contains blood-pressure reducing molecules that have led to pioneering treatments for high blood pressure.
         As Paracelsus is reported to have said 500 years ago: "All things are poison, and nothing is without poison: the dose alone makes a thing not poison." And he had a point. Ultimately, we are surrounded by potentially dangerous substances – it’s the dose that makes it deadly.
     </string>
+    <string name="favorite">Favorite</string>
+    <string name="search">Search</string>
+    <string name="more">More</string>
 
 </resources>

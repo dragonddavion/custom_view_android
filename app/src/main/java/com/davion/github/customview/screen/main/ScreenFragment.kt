@@ -4,9 +4,7 @@ package com.davion.github.customview.screen.main
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -14,6 +12,7 @@ import com.davion.github.customview.R
 import com.davion.github.customview.core.viewBinding
 import com.davion.github.customview.databinding.FragmentScreenBinding
 import com.davion.github.customview.util.getActionNavigationFromType
+import com.google.android.material.appbar.MaterialToolbar
 
 val TAG: String = ScreenFragment::class.java.simpleName
 
@@ -25,10 +24,17 @@ class ScreenFragment : Fragment(R.layout.fragment_screen) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d(TAG, "Davion onViewCreated")
+        initToolbar(binding.toolbarLayout.topAppBar)
 
         initRecyclerView()
 
         observerNavigation()
+    }
+
+    private fun initToolbar(toolbar: MaterialToolbar) {
+        toolbar.title = "Screens"
+        toolbar.inflateMenu(R.menu.top_app_bar)
+        toolbar.setNavigationIcon(R.drawable.ic_menu)
     }
 
     private fun initRecyclerView() {
