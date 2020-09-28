@@ -30,7 +30,9 @@ class CollapsingFragment : Fragment(R.layout.fragment_collapsing) {
     }
 
     private fun setupActionBar() {
-        binding.collapsingToolbarLayout.title = "Collapsing Toolbar"
+        binding.toolbar.inflateMenu(R.menu.top_app_bar)
+
+
         val navController = findNavController()
         val appBarConfiguration = AppBarConfiguration(navController.graph)
 

@@ -21,15 +21,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@id/toolbar">
 
-            <ImageView
-                android:id="@+id/appbar_image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/description"
-                android:fitsSystemWindows="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/im_collapsing"
-                app:layout_collapseMode="parallax" />
+            <include layout="@layout/layout_collapsing_cover"/>
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar"

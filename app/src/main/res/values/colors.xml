@@ -4,6 +4,9 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#5A5A5A</color>
 
+    <color name="colorSecondary">#FFC107</color>
+    <color name="colorSecondaryDark">#FF9800</color>
+
 
     <color name="colorBackgroundScreenRecyclerView">#E6E6E6</color>
     <color name="colorTextWhite">#FFFFFF</color>
