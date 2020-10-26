@@ -43,7 +43,7 @@ class ScreenFragment : Fragment(R.layout.fragment_screen) {
 
     private fun initRecyclerView() {
         val adapter = ScreenAdapter {
-            viewModel.navigateToScreen(it.id)
+            viewModel.onScreenItemClickListener(it.id)
         }
 
         binding.layoutScreens.screens.adapter = adapter
@@ -60,8 +60,10 @@ class ScreenFragment : Fragment(R.layout.fragment_screen) {
         viewModel.screenNavigation.observe(viewLifecycleOwner, {
             it?.let {
                 Log.d(TAG, "Davion observer navigate to the progress screen")
-                this.findNavController().navigate(getActionNavigationFromType(it))
-                viewModel.navigateToScreenCompleted()
+                if (getActionNavigationFromType(it) >= 0) {
+                    this.findNavController().navigate(getActionNavigationFromType(it))
+                    viewModel.navigateToScreenCompleted()
+                }
             }
         })
     }

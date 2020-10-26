@@ -13,6 +13,7 @@ fun getActionNavigationFromType(screenType: Int) : Int {
     return when (screenType) {
         0 -> R.id.action_screenFragment_to_progressFragment
         1 -> R.id.action_screenFragment_to_collapsingFragment
+        2 -> R.id.action_screenFragment_to_searchFragment
         else -> -1
     }
 }

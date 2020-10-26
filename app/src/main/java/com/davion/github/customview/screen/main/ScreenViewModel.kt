@@ -20,7 +20,7 @@ class ScreenViewModel : ViewModel() {
     }
 
 
-    fun navigateToScreen(screenType: Int) {
+    fun onScreenItemClickListener(screenType: Int) {
         _screenNavigation.value = screenType
     }
 
@@ -33,6 +33,8 @@ class ScreenViewModel : ViewModel() {
         screenList.add(progressScreen)
         val collapsingScreen = Screen(1, "Collapsing Toolbar", "The screen is collapsing")
         screenList.add(collapsingScreen)
+        val searchScreen = Screen(2, "Search", "The view is Search")
+        screenList.add(searchScreen)
         _screens.value = screenList
     }
 }

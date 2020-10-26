@@ -41,7 +41,7 @@ class ScreenViewHolder(private val binding: ItemScreenBinding): RecyclerView.Vie
     companion object {
         fun from(parent: ViewGroup) : ScreenViewHolder{
             val inflater = LayoutInflater.from(parent.context)
-            val binding = ItemScreenBinding.inflate(inflater)
+            val binding = ItemScreenBinding.inflate(inflater, parent, false)
             return ScreenViewHolder(binding)
         }
     }

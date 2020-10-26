@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_screenFragment_to_collapsingFragment"
             app:destination="@id/collapsingFragment" />
+        <action
+            android:id="@+id/action_screenFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/progressFragment"
@@ -26,4 +29,9 @@
         android:name="com.davion.github.customview.screen.collapsing.CollapsingFragment"
         tools:layout="@layout/fragment_collapsing"
         android:label="Collapsing ToolBar" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.davion.github.customview.screen.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
 </navigation>
