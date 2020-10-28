@@ -12,9 +12,7 @@ import com.davion.github.customview.R
 import com.davion.github.customview.core.viewBinding
 import com.davion.github.customview.databinding.FragmentSearchBinding
 
-
 class SearchFragment : Fragment(R.layout.fragment_search) {
-
     private val binding: FragmentSearchBinding by viewBinding(FragmentSearchBinding::bind)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,10 +37,8 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                 override fun onQueryTextSubmit(p0: String?): Boolean {
                     val navController = binding.navSearch.findNavController()
                     navController.navigate(R.id.action_mainSearchFragment_to_resultSearchFragment)
-
                     return true
                 }
-
                 override fun onQueryTextChange(p0: String?): Boolean {
                     return false
                 }

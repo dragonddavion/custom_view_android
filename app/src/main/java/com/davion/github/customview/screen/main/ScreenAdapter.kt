@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.davion.github.customview.databinding.ItemScreenBinding
-import com.davion.github.customview.util.diffutil.ScreenDiffUtil
+import com.davion.github.customview.util.diffutil.ItemDiffUtil
 import com.davion.github.customview.util.getImageDetailScreen
 
 
-class ScreenAdapter(private val clickListener: (Screen) -> Unit) : ListAdapter<Screen, ScreenViewHolder>(ScreenDiffUtil()) {
+class ScreenAdapter(private val clickListener: (Screen) -> Unit) : ListAdapter<Screen, ScreenViewHolder>(ItemDiffUtil<Screen>()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScreenViewHolder {
         return ScreenViewHolder.from(parent)
     }
