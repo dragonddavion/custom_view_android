@@ -9,7 +9,7 @@
         android:id="@+id/screenFragment"
         android:name="com.davion.github.customview.screen.main.ScreenFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_screen" >
+        tools:layout="@layout/fragment_screen">
         <action
             android:id="@+id/action_screenFragment_to_progressFragment"
             app:destination="@id/progressFragment" />
@@ -27,11 +27,11 @@
     <fragment
         android:id="@+id/collapsingFragment"
         android:name="com.davion.github.customview.screen.collapsing.CollapsingFragment"
-        tools:layout="@layout/fragment_collapsing"
-        android:label="Collapsing ToolBar" />
+        android:label="Collapsing ToolBar"
+        tools:layout="@layout/fragment_collapsing" />
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.davion.github.customview.screen.search.SearchFragment"
-        android:label="fragment_search"
+        android:label="Search"
         tools:layout="@layout/fragment_search" />
 </navigation>

@@ -4,8 +4,9 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#5A5A5A</color>
 
-    <color name="colorSecondary">#FFC107</color>
-    <color name="colorSecondaryDark">#FF9800</color>
+    <color name="colorSecondary">#FFFF00</color>
+    <color name="colorSecondaryDark">#C7CC00</color>
+    <color name="colorSecondaryLight">#FFFF5A</color>
 
 
     <color name="colorBackgroundScreenRecyclerView">#E6E6E6</color>
