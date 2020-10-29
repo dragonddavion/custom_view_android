@@ -1,9 +1,11 @@
 package com.davion.github.customview.screen.search
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -32,11 +34,24 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     private fun setupSearchView() {
         binding.searchView.also { searchView ->
             searchView.queryHint = "Search"
-
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-                override fun onQueryTextSubmit(p0: String?): Boolean {
-                    val navController = binding.navSearch.findNavController()
-                    navController.navigate(R.id.action_mainSearchFragment_to_resultSearchFragment)
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    if (query.isNullOrEmpty()) {
+                        return false
+                    }
+
+                    val navController: NavController = binding.navSearch.findNavController()
+                    if (navController.currentDestination?.id == R.id.mainSearchFragment) {
+                        Log.d("Davion", "navigate")
+                        navController.navigate(MainSearchFragmentDirections.actionMainSearchFragmentToResultSearchFragment(query))
+                    } else {
+                        val id = navController.currentDestination?.id
+                        id?.let {
+                            this@SearchFragment.childFragmentManager.findFragmentById(R.id.resultSearchFragment)?.let {
+                                (it as ResultSearchFragment).queryNewString(query)
+                            }
+                        }
+                    }
                     return true
                 }
                 override fun onQueryTextChange(p0: String?): Boolean {
@@ -46,6 +61,14 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
             searchView.setOnClickListener {
                 searchView.isIconified = false
+            }
+
+            searchView.setOnCloseListener {
+                val navController: NavController = binding.navSearch.findNavController()
+                if (navController.currentDestination?.id == R.id.resultSearchFragment) {
+                    navController.navigateUp()
+                }
+                true
             }
         }
     }

@@ -49,7 +49,6 @@ class ScreenFragment : Fragment(R.layout.fragment_screen) {
         binding.layoutScreens.screens.adapter = adapter
 
         viewModel.screens.observe(viewLifecycleOwner, {
-            Log.d("Davion", "observer Data: $it")
             it?.let {
                 adapter.submitList(it)
             }
@@ -59,7 +58,6 @@ class ScreenFragment : Fragment(R.layout.fragment_screen) {
     private fun observerNavigation() {
         viewModel.screenNavigation.observe(viewLifecycleOwner, {
             it?.let {
-                Log.d(TAG, "Davion observer navigate to the progress screen")
                 if (getActionNavigationFromType(it) >= 0) {
                     this.findNavController().navigate(getActionNavigationFromType(it))
                     viewModel.navigateToScreenCompleted()
