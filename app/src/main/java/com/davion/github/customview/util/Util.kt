@@ -1,5 +1,7 @@
 package com.davion.github.customview.util
 
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import com.davion.github.customview.R
 import com.davion.github.customview.model.Good
 
@@ -40,4 +42,9 @@ fun createGoods() : List<Good> {
     goods.add(Good(id = 17, name = "Bacon", level = 10, time = "4 hour"))
     goods.add(Good(id = 18, name = "Cookie", level = 10, time = "1 hour 51 min"))
     return goods
+}
+
+fun View.hideKeyboard() {
+    val inputMethodManager = context!!.getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+    inputMethodManager?.hideSoftInputFromWindow(this.windowToken, 0)
 }

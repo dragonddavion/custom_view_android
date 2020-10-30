@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".screen.search.SearchFragment">
 
@@ -11,7 +11,6 @@
         android:id="@+id/toolbar"
         layout="@layout/layout_tool_bar" />
 
-    <!-- TODO: Update blank fragment layout -->
     <SearchView
         android:id="@+id/search_view"
         android:layout_width="match_parent"
@@ -19,6 +18,7 @@
         android:layout_marginHorizontal="8dp"
         android:layout_marginVertical="4dp"
         android:background="@drawable/bg_search_view"
+        android:clickable="false"
         android:queryHint="Search" />
 
     <androidx.fragment.app.FragmentContainerView
@@ -27,10 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:navGraph="@navigation/search_navigation"
-
         tools:context="com.davion.github.customview.screen.search.SearchFragment">
 
     </androidx.fragment.app.FragmentContainerView>
-
-
 </LinearLayout>

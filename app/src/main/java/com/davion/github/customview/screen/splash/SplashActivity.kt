@@ -8,7 +8,6 @@ import com.davion.github.customview.MainActivity
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Thread.sleep(500)
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }

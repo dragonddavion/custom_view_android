@@ -1,12 +1,12 @@
 package com.davion.github.customview.screen.search
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
@@ -33,43 +33,58 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
     private fun setupSearchView() {
         binding.searchView.also { searchView ->
-            searchView.queryHint = "Search"
-            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-                override fun onQueryTextSubmit(query: String?): Boolean {
-                    if (query.isNullOrEmpty()) {
-                        return false
-                    }
+            onQueryTextChange(searchView)
 
-                    val navController: NavController = binding.navSearch.findNavController()
-                    if (navController.currentDestination?.id == R.id.mainSearchFragment) {
-                        Log.d("Davion", "navigate")
-                        navController.navigate(MainSearchFragmentDirections.actionMainSearchFragmentToResultSearchFragment(query))
-                    } else {
-                        val id = navController.currentDestination?.id
-                        id?.let {
-                            this@SearchFragment.childFragmentManager.findFragmentById(R.id.resultSearchFragment)?.let {
-                                (it as ResultSearchFragment).queryNewString(query)
-                            }
-                        }
-                    }
-                    return true
-                }
-                override fun onQueryTextChange(p0: String?): Boolean {
+            onSearchViewClickListenner(searchView)
+        }
+    }
+
+    private fun onQueryTextChange(searchView: SearchView) {
+        searchView.queryHint = "Search"
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query.isNullOrEmpty()) {
                     return false
                 }
-            })
-
-            searchView.setOnClickListener {
-                searchView.isIconified = false
-            }
-
-            searchView.setOnCloseListener {
                 val navController: NavController = binding.navSearch.findNavController()
-                if (navController.currentDestination?.id == R.id.resultSearchFragment) {
-                    navController.navigateUp()
+                if (navController.currentDestination?.id == R.id.mainSearchFragment) {
+                    navController.navigate(
+                        MainSearchFragmentDirections.actionMainSearchFragmentToResultSearchFragment(
+                            query
+                        )
+                    )
+                } else {
+                    val navHostFragment: NavHostFragment =
+                        this@SearchFragment.childFragmentManager.findFragmentById(
+                            R.id.nav_search
+                        ) as NavHostFragment
+                    (navHostFragment.childFragmentManager.fragments[0] as ResultSearchFragment).queryNewString(
+                        query
+                    )
                 }
-                true
+                searchView.clearFocus()
+                return true
             }
+
+            override fun onQueryTextChange(p0: String?): Boolean {
+                return false
+            }
+        })
+    }
+
+    private fun onSearchViewClickListenner(searchView: SearchView) {
+        searchView.setOnClickListener {
+            searchView.isIconified = false
+        }
+
+        searchView.setOnCloseListener {
+            searchView.onActionViewCollapsed()
+            val navController: NavController = binding.navSearch.findNavController()
+
+            if (navController.currentDestination?.id == R.id.resultSearchFragment) {
+                navController.navigateUp()
+            }
+            true
         }
     }
 }
