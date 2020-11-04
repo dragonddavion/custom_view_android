@@ -31,11 +31,11 @@ class ProgressFragment : Fragment(R.layout.fragment_progress) {
     }
 
     private fun setupActionBar() {
-        binding.toolbarLayout.topAppBar.title = "Progress"
+        binding.toolbarLayout.toolbar.title = "Progress"
 
         val navController = this.findNavController()
         val appBarConfiguration = AppBarConfiguration(navController.graph)
-        binding.toolbarLayout.topAppBar.setupWithNavController(navController, appBarConfiguration)
+        binding.toolbarLayout.toolbar.setupWithNavController(navController, appBarConfiguration)
     }
 
     private fun initTimer() {

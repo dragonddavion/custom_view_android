@@ -2,7 +2,9 @@ package com.davion.github.customview.screen.search
 
 import android.os.Bundle
 import android.view.View
-import android.widget.SearchView
+import android.widget.EditText
+import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -22,21 +24,34 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
         setupActionBar()
 
-        setupSearchView()
+        setupSearchView(binding.searchView)
     }
 
     private fun setupActionBar() {
+        setupMenu()
+
         val navController = this.findNavController()
         val appBarConfiguration = AppBarConfiguration(navController.graph)
-        binding.toolbar.topAppBar.setupWithNavController(navController, appBarConfiguration)
+        binding.toolbarLayout.toolbar.setupWithNavController(navController, appBarConfiguration)
     }
 
-    private fun setupSearchView() {
-        binding.searchView.also { searchView ->
-            onQueryTextChange(searchView)
+    private fun setupMenu() {
+        binding.toolbarLayout.toolbar.inflateMenu(R.menu.top_app_bar)
+        val menu = binding.toolbarLayout.toolbar.menu
+        val favoriteItem = menu.findItem(R.id.favorite)
+        favoriteItem.isVisible = false
+        val searchItem = menu.findItem(R.id.search)
+        val searchView: SearchView = searchItem.actionView as SearchView
 
-            onSearchViewClickListenner(searchView)
-        }
+        val editText = searchView.findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
+        editText.setTextColor(ContextCompat.getColor(requireContext(), R.color.colorTextWhite))
+        editText.setHintTextColor(ContextCompat.getColor(requireContext(), R.color.colorTextWhite))
+        setupSearchView(searchView)
+    }
+
+    private fun setupSearchView(searchView: SearchView) {
+        onQueryTextChange(searchView)
+        onSearchViewClickListenner(searchView)
     }
 
     private fun onQueryTextChange(searchView: SearchView) {

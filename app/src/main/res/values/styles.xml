@@ -26,8 +26,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="circleImageView" parent="">
+    <style name="CircleImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">20%</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="android:textColor">@color/colorTextWhite</item>
+        <item name="tint">@color/colorTextWhite</item>
+        <item name="android:editTextColor">@android:color/white</item>
     </style>
 </resources>

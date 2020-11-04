@@ -26,7 +26,7 @@ class ScreenFragment : Fragment(R.layout.fragment_screen) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d(TAG, "Davion onViewCreated")
-        initToolbar(binding.layoutScreens.toolbarLayout.topAppBar)
+        initToolbar(binding.layoutScreens.toolbarLayout.toolbar)
 
         initRecyclerView()
 
@@ -38,7 +38,7 @@ class ScreenFragment : Fragment(R.layout.fragment_screen) {
 
         val navController = this.findNavController()
         val appBarConfiguration = AppBarConfiguration(navController.graph, binding.drawerLayout)
-        binding.layoutScreens.toolbarLayout.topAppBar.setupWithNavController(navController, appBarConfiguration)
+        binding.layoutScreens.toolbarLayout.toolbar.setupWithNavController(navController, appBarConfiguration)
     }
 
     private fun initRecyclerView() {
